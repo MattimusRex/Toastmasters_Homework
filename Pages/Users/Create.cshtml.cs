@@ -54,7 +54,7 @@ namespace RazorPagesToastmaster.Pages.Users
             var existingUser = await _context.User.FirstOrDefaultAsync(m => m.Username == User.Username);
             if (existingUser != null)
             {
-                ModelState.AddModelError("", "This username is already taken. Please choose another.");
+                ModelState.AddModelError("", "That username is already taken. Please choose another.");
                 return Page();
             }
 

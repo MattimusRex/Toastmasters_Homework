@@ -8,7 +8,6 @@ namespace RazorPagesToastmaster.Models
         public int ID { get; set; }
 
         [Required]
-        [Index(IsUnique = true)]
         public string Username { get; set; }
 
         [Required]

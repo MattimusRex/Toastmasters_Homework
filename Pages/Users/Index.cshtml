@@ -2,7 +2,7 @@
 @model RazorPagesToastmaster.Pages.Users.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "User List";
 }
 
 <h2>Users</h2>
@@ -13,7 +13,7 @@
             <th style="width: 25%">
                 @Html.DisplayNameFor(model => model.User[0].Username)
             </th>
-            <th style="width: 75%"></th>
+            <th style="width: 75%">Actions</th>
         </tr>
     </thead>
     <tbody>

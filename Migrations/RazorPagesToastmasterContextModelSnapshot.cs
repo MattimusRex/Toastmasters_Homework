@@ -24,11 +24,17 @@ namespace RazorPagesToastmaster.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Password");
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(12);
 
-                    b.Property<string>("Username");
+                    b.Property<string>("Username")
+                        .IsRequired();
 
                     b.HasKey("ID");
+
+                    b.HasIndex("Username")
+                        .IsUnique();
 
                     b.ToTable("User");
                 });

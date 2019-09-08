@@ -9,6 +9,11 @@ namespace RazorPagesToastmaster.Models
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>().HasIndex(x => x.Username).IsUnique();
+        }
+
         public DbSet<User> User { get; set; }
     }
 }

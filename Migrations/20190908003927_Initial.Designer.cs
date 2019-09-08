@@ -9,7 +9,7 @@ using RazorPagesToastmaster.Models;
 namespace RazorPagesToastmaster.Migrations
 {
     [DbContext(typeof(RazorPagesToastmasterContext))]
-    [Migration("20190907154153_Initial")]
+    [Migration("20190908003927_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,11 +26,17 @@ namespace RazorPagesToastmaster.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Password");
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(12);
 
-                    b.Property<string>("Username");
+                    b.Property<string>("Username")
+                        .IsRequired();
 
                     b.HasKey("ID");
+
+                    b.HasIndex("Username")
+                        .IsUnique();
 
                     b.ToTable("User");
                 });
